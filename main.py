@@ -163,7 +163,7 @@ from tensorflow.keras.utils import to_categorical
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
 # Assuming train_labels, val_labels, test_labels are NumPy arrays
-y_train = to_categorical(train_labels)
+y_train = to_categorical(train_ratings)
 y_test = to_categorical(test_labels)
 
 y_train_1d = np.argmax(y_train, axis=1)
