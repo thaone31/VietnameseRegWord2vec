@@ -164,7 +164,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 
 # Assuming train_labels, val_labels, test_labels are NumPy arrays
 y_train = to_categorical(train_ratings)
-y_test = to_categorical(test_labels)
+# y_test = to_categorical(test_labels)
 
 y_train_1d = np.argmax(y_train, axis=1)
 y_train_1d = y_train_1d[:, 0]
