@@ -159,7 +159,7 @@ test_text_dataloader = make_data_loader(test_text_ids, test_text_masks, test_lab
 
 train_labels = torch.tensor(train_ratings)
 val_labels = torch.tensor(val_ratings)
-test_labels = torch.tensor(en_test_labels)
+test_labels = torch.tensor(test_labels)
 import numpy as np
 from tensorflow.keras.utils import to_categorical
 from sklearn.linear_model import LogisticRegression
