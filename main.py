@@ -184,9 +184,9 @@ test_data = np.concatenate((test_title_ids_2d, test_text_ids_2d), axis=1)
 
 y_pred_lr = lr.predict(test_data)
 
-acc_lr = accuracy_score(np.argmax(y_test, axis=1), y_pred_lr)
-conf = confusion_matrix(np.argmax(y_test, axis=1), y_pred_lr)
-clf_report = classification_report(np.argmax(y_test, axis=1), y_pred_lr)
+acc_lr = accuracy_score(np.argmax(test_labels, axis=1), y_pred_lr)
+conf = confusion_matrix(np.argmax(test_labels, axis=1), y_pred_lr)
+clf_report = classification_report(np.argmax(test_labels, axis=1), y_pred_lr)
 
 print(f"Accuracy Score of Logistic Regression is: {acc_lr}")
 print(f"Confusion Matrix:\n{conf}")
