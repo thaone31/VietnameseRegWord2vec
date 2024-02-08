@@ -1,4 +1,5 @@
-import re,os                                   # 're' Replication of text.
+import re,os
+import torch # 're' Replication of text.
 import numpy as np
 import pandas as pd                         # 'pandas' to manipulate the dataset.
 import matplotlib.pyplot as plt
