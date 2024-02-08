@@ -73,7 +73,7 @@ print(X_train['user_rate'].unique())
 
 from gensim.models import KeyedVectors
 
-w2vModel = word2vec.KeyedVectors.load_word2vec_format('./VietnameseRegWord2vec/Hotel_sentiment-20240207T135933Z-002/Hotel_sentiment/GoogleNews-vectors-negative300.bin', binary=True, limit=50000)
+w2vModel = word2vec.KeyedVectors.load_word2vec_format('./VietnameseRegWord2vec/Hotel_sentiment-20240207T135933Z-002/Hotel_sentiment/baomoi.model.bin', binary=True, limit=50000)
 
 tokenizer = Tokenizer()
 
