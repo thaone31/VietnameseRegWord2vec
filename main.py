@@ -171,6 +171,7 @@ test_text_dataloader = make_data_loader(test_text_ids, test_text_masks, test_lab
 
 import numpy as np
 from tensorflow.keras.utils import to_categorical
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
 # Assuming train_labels, val_labels, test_labels are NumPy arrays
