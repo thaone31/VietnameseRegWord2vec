@@ -167,7 +167,6 @@ y_train = to_categorical(train_ratings)
 # y_test = to_categorical(test_labels)
 
 y_train_1d = np.argmax(y_train, axis=1)
-y_train_1d = y_train_1d[:, 0]
 
 lr = LogisticRegression()
 train_title_ids_2d = np.array(train_title_ids).reshape(len(train_title_ids), -1)
