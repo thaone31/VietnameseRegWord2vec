@@ -1,5 +1,6 @@
 import re,os                                   # 're' Replication of text.
 import numpy as np
+import torch
 import pandas as pd                         # 'pandas' to manipulate the dataset.
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
