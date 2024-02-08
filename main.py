@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd                         # 'pandas' to manipulate the dataset.
 import matplotlib.pyplot as plt
 import tensorflow as tf
+from sklearn.preprocessing import LabelEncoder
 from tensorflow.keras.models import Sequential                # 'Sequential' model will be used for training.
 from sklearn.model_selection import train_test_split          # 'train_test_split' for splitting the data into train and test data.
 from tensorflow.keras.preprocessing.text import Tokenizer
