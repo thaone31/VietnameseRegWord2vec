@@ -54,14 +54,7 @@ from keras.utils import to_categorical
 label_mapping = {'pos': 1, 'neu': 2, 'neg': 3}
 
 X_test = pd.read_excel(r"./VietnameseRegWord2vec/Hotel_sentiment-20240207T135933Z-002/Hotel_sentiment/data/Data_test.xlsx")
-# label encoded
-lb_encoder = LabelEncoder()
-lb_encoder.fit(train_ratings)
 
-en_train_labels = lb_encoder.transform(train_ratings)
-en_test_labels = lb_encoder.transform(test_ratings)
-
-print(lb_encoder.classes_)  # in kiểm tra các labels
 if X_test.isnull().values.any():
     X_test = X_test.dropna()
 
@@ -118,7 +111,14 @@ def convert_sents_ids(sents):
     ids = pad_sequences(ids, maxlen=MAX_LEN, dtype="float32", value=0, truncating="post", padding="post")
     return ids
 
+# label encoded
+lb_encoder = LabelEncoder()
+lb_encoder.fit(train_ratings)
 
+en_train_labels = lb_encoder.transform(train_ratings)
+en_test_labels = lb_encoder.transform(test_ratings)
+
+print(lb_encoder.classes_)  # in kiểm tra các labels
 train_title_ids = convert_sents_ids(train_sent_titles)
 train_text_ids = convert_sents_ids(train_sent_texts)
 val_title_ids = convert_sents_ids(val_sent_titles)
