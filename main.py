@@ -182,7 +182,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
 # Assuming train_labels and test_labels are NumPy arrays
-y_train = to_categorical(train_labels)
+y_train = to_categorical(train_ratings)
 y_test = to_categorical(test_labels)
 
 y_train_1d = np.argmax(y_train, axis=1)
