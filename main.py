@@ -186,7 +186,18 @@ test_data = np.concatenate((test_title_ids_2d, test_text_ids_2d), axis=1)
 
 y_pred_lr = lr.predict(test_data)
 
-acc_lr = accuracy_score(test_labels, y_pred_lr)
+# acc_lr = accuracy_score(test_labels, y_pred_lr)
+from sklearn.metrics import precision_score, recall_score, f1_score
+
+# Tính toán các phép đo
+precision = precision_score(test_labels, y_pred_lr, average='micro')
+recall = recall_score(test_labels, y_pred_lr, average='micro')
+f1 = f1_score(test_labels, y_pred_lr, average='micro')
+
+# In kết quả
+print("Micro-average Precision: ", precision)
+print("Micro-average Recall: ", recall)
+print("Micro-average F1-score: ", f1)
 conf = confusion_matrix(test_labels, y_pred_lr)
 clf_report = classification_report(test_labels, y_pred_lr)
 
