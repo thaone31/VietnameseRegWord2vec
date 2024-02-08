@@ -118,14 +118,6 @@ def convert_sents_ids(sents):
     ids = pad_sequences(ids, maxlen=MAX_LEN, dtype="float32", value=0, truncating="post", padding="post")
     return ids
 
-# label encoded
-lb_encoder = LabelEncoder()
-lb_encoder.fit(train_ratings)
-
-en_train_labels = lb_encoder.transform(train_ratings)
-en_test_labels = lb_encoder.transform(test_ratings)
-
-print(lb_encoder.classes_)  # in kiểm tra các labels
 train_title_ids = convert_sents_ids(train_sent_titles)
 train_text_ids = convert_sents_ids(train_sent_texts)
 val_title_ids = convert_sents_ids(val_sent_titles)
