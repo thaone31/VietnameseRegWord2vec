@@ -2,7 +2,6 @@ import re,os                                   # 're' Replication of text.
 import numpy as np
 import pandas as pd                         # 'pandas' to manipulate the dataset.
 import matplotlib.pyplot as plt
-%matplotlib inline
 import seaborn as sns                       # 'seaborn' to visualize the dataset.
 import tensorflow as tf
 from tensorflow.keras.models import Sequential                # 'Sequential' model will be used for training.
