@@ -161,20 +161,20 @@ test_text_dataloader = make_data_loader(test_text_ids, test_text_masks, test_lab
 
 import numpy as np
 
-# Assuming train_title_ids, train_title_masks, and train_labels are your training data
-num_samples_to_keep = len(test_title_ids)  # Use the length of your testing dataset
+# # Assuming train_title_ids, train_title_masks, and train_labels are your training data
+# num_samples_to_keep = len(test_title_ids)  # Use the length of your testing dataset
 
-# Randomly sample a subset of the training data
-random_indices = np.random.choice(len(train_title_ids), num_samples_to_keep, replace=False)
+# # Randomly sample a subset of the training data
+# random_indices = np.random.choice(len(train_title_ids), num_samples_to_keep, replace=False)
 
-# Update your training data with the randomly sampled subset
-train_title_ids = train_title_ids[random_indices]
-train_title_masks = train_title_masks[random_indices]
+# # Update your training data with the randomly sampled subset
+# train_title_ids = train_title_ids[random_indices]
+# train_title_masks = train_title_masks[random_indices]
 
-train_text_ids = train_text_ids[random_indices]
-train_text_masks = train_text_masks[random_indices]
+# train_text_ids = train_text_ids[random_indices]
+# train_text_masks = train_text_masks[random_indices]
 
-train_labels = train_labels[random_indices]
+# train_labels = train_labels[random_indices]
 
 import numpy as np
 from tensorflow.keras.utils import to_categorical
