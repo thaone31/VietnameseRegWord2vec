@@ -53,7 +53,14 @@ from keras.utils import to_categorical
 label_mapping = {'pos': 1, 'neu': 2, 'neg': 3}
 
 X_test = pd.read_excel(r"./VietnameseRegWord2vec/Hotel_sentiment-20240207T135933Z-002/Hotel_sentiment/data/Data_test.xlsx")
+# label encoded
+lb_encoder = LabelEncoder()
+lb_encoder.fit(train_ratings)
 
+en_train_labels = lb_encoder.transform(train_ratings)
+en_test_labels = lb_encoder.transform(test_ratings)
+
+print(lb_encoder.classes_)  # in kiểm tra các labels
 if X_test.isnull().values.any():
     X_test = X_test.dropna()
 
@@ -148,6 +155,8 @@ def make_data_loader(ids, masks, labels, BATCH_SIZE=4):
 
     return batched_data
 
+train_labels = torch.tensor(train_ratings)
+test_labels = torch.tensor(test_labels)
 
 train_title_dataloader = make_data_loader(train_title_ids, train_title_masks, train_ratings)
 train_text_dataloader = make_data_loader(train_text_ids, train_text_masks, train_ratings)
@@ -164,7 +173,6 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 
 # Assuming train_labels, val_labels, test_labels are NumPy arrays
 y_train = to_categorical(train_ratings)
-y_train = torch.tensor(y_train)
 y_train_1d = np.argmax(y_train, axis=1)
 
 lr = LogisticRegression()
