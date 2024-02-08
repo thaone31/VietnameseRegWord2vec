@@ -170,7 +170,7 @@ y_train = to_categorical(train_labels)
 
 
 y_train_1d = np.argmax(y_train, axis=1)
-# y_train_1d = y_train_1d[:, 0]
+y_train_1d = y_train_1d[:, 0]
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
