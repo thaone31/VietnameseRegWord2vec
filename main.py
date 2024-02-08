@@ -11,6 +11,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences       # 'pad_s
 from tensorflow.keras.layers import Embedding, Bidirectional,LSTM, Flatten, Dense,Input,Average,Reshape,Dropout,Concatenate,Maximum     # import some layers for training.
 from tensorflow.keras.layers import Conv2D, MaxPool2D,Convolution1D,MaxPooling1D     # import some layers for training.
 from tensorflow.keras.utils import to_categorical
+from sklearn.linear_model import LogisticRegression
 import gensim.models.keyedvectors as word2vec #need to use due to depreceated model
 # import gensim.models.word2vec as Word2Vec #need to use due to depreceated model
 import gc
