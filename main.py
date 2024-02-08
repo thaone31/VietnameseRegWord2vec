@@ -169,7 +169,7 @@ y_train = to_categorical(train_ratings)
 y_train_1d = np.argmax(y_train, axis=1)
 y_train_1d = y_train_1d[:, 0]
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+from sklearn.metrics import confusion_matrix, classification_report, precision_recall_fscore_support
 
 lr = LogisticRegression()
 train_title_ids_2d = np.array(train_title_ids).reshape(len(train_title_ids), -1)
@@ -186,21 +186,13 @@ test_data = np.concatenate((test_title_ids_2d, test_text_ids_2d), axis=1)
 
 y_pred_lr = lr.predict(test_data)
 
-# acc_lr = accuracy_score(test_labels, y_pred_lr)
-from sklearn.metrics import precision_score, recall_score, f1_score
+precision, recall, f1, _ = precision_recall_fscore_support(test_labels, y_pred_lr, average='micro')
 
-# Tính toán các phép đo
-precision = precision_score(test_labels, y_pred_lr, average='micro')
-recall = recall_score(test_labels, y_pred_lr, average='micro')
-f1 = f1_score(test_labels, y_pred_lr, average='micro')
-
-# In kết quả
-print("Micro-average Precision: ", precision)
-print("Micro-average Recall: ", recall)
-print("Micro-average F1-score: ", f1)
 conf = confusion_matrix(test_labels, y_pred_lr)
 clf_report = classification_report(test_labels, y_pred_lr)
 
-print(f"Accuracy Score of Logistic Regression is: {acc_lr}")
+print("Micro-average Precision: ", precision)
+print("Micro-average Recall: ", recall)
+print("Micro-average F1-score: ", f1)
 print(f"Confusion Matrix:\n{conf}")
 print(f"Classification Report:\n{clf_report}")
