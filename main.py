@@ -173,11 +173,11 @@ import numpy as np
 from tensorflow.keras.utils import to_categorical
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
-train_labels.shape
+print(train_labels.shape)
 # Assuming train_labels, val_labels, test_labels are NumPy arrays
 y_train = to_categorical(train_labels)
 y_train_1d = np.argmax(y_train, axis=1)
-y_train_1d.shape
+print(y_train_1d.shape)
 
 lr = LogisticRegression()
 train_title_ids_2d = np.array(train_title_ids).reshape(len(train_title_ids), -1)
