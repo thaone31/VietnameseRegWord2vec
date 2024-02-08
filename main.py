@@ -177,6 +177,7 @@ print(train_labels.shape)
 # Assuming train_labels, val_labels, test_labels are NumPy arrays
 y_train = to_categorical(train_labels)
 y_train_1d = np.argmax(y_train, axis=1)
+y_train_1d = np.argmax(y_train_1d, axis=1)
 print(y_train_1d.shape)
 
 lr = LogisticRegression()
