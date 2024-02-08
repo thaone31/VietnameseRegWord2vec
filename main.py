@@ -176,18 +176,19 @@ train_text_masks = train_text_masks[random_indices]
 
 train_labels = train_labels[random_indices]
 
+import numpy as np
 from tensorflow.keras.utils import to_categorical
-
-# Assuming train_labels is a NumPy array
-y_train = to_categorical(train_ratings)
-y_val = to_categorical(val_ratings)
-
-y_train_1d = np.argmax(y_train, axis=1)
-
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
+# Assuming train_labels and test_labels are NumPy arrays
+y_train = to_categorical(train_labels)
+y_test = to_categorical(test_labels)
+
+y_train_1d = np.argmax(y_train, axis=1)
+
 lr = LogisticRegression()
+
 train_title_ids_2d = np.array(train_title_ids).reshape(len(train_title_ids), -1)
 train_text_ids_2d = np.array(train_text_ids).reshape(len(train_text_ids), -1)
 
@@ -202,9 +203,9 @@ test_data = np.concatenate((test_title_ids_2d, test_text_ids_2d), axis=1)
 
 y_pred_lr = lr.predict(test_data)
 
-acc_lr = accuracy_score(test_labels, y_pred_lr)
-conf = confusion_matrix(test_labels, y_pred_lr)
-clf_report = classification_report(test_labels, y_pred_lr)
+acc_lr = accuracy_score(np.argmax(y_test, axis=1), y_pred_lr)
+conf = confusion_matrix(np.argmax(y_test, axis=1), y_pred_lr)
+clf_report = classification_report(np.argmax(y_test, axis=1), y_pred_lr)
 
 print(f"Accuracy Score of Logistic Regression is: {acc_lr}")
 print(f"Confusion Matrix:\n{conf}")
